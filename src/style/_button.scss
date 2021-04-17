@@ -1,0 +1,26 @@
+
+.btn-style, .btn__primary, .btn__primary--border, .btn__secondary, .btn__secondary--border, .btn__secondary:disabled {
+    font-size: 14px;
+    line-height: 24px;
+    text-decoration: none;
+    font-family: Lato,Arial,sans-serif;
+    border-radius: 8px;
+    display: inline-block;
+    letter-spacing: .8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    width: 100%;
+    max-width: 360px;
+    border: none;
+    cursor: pointer;
+    margin-top: 32px;
+    margin-bottom: 64px;
+    padding: 15px 36px;
+    transition: all .3s ease-in-out;
+}
+
+.btn__primary {
+    background-color: #ef3340;
+    color: #fff;
+}

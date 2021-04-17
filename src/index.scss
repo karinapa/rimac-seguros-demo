@@ -1,4 +1,8 @@
-
+@import './style/variables';
+@import './style/global';
+@import './style/mixins';
+@import './style/button';
+@import './style/checkbox.scss';
 *{
     font-family: 'Roboto'
 }
@@ -10,7 +14,7 @@
     img{
         width: 89px;
         height: 16px;
-        margin: 20px;
+        margin: 20px 0;
     }
 }
 
@@ -32,13 +36,19 @@
     -o-transform: skew(0,3deg);
     -moz-transform: skew(0,3deg);
     top: -15px;
+    img {
+        height: 340px;
+        position: absolute;
+        right: -40px;
+        top: 18%;
+    }
 }
 
 @media only screen and (min-width: 1024px){
     .home .bg-left {
         display: block;
         width: 55%;
-        height: 100vh;
+        height: 80vh;
         left: -48px;
         top: 0;
         transform: skew(
@@ -62,6 +72,7 @@
     vertical-align: top;
 }
 
+
 @media only screen and (min-width: 1024px){
     .home__img {
         display: inline-block;
@@ -73,6 +84,24 @@
     height: auto;
 }
 
+.home__form {
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 140px;
+    padding: 28px;
+}
+
+
+@media only screen and (min-width: 768px){
+    .home__form {
+        padding: 16px;
+    }
+    
+}
+
 @media only screen and (min-width: 1024px){
     .home__form {
         width: 24.3243243243%;
@@ -82,73 +111,49 @@
     }
 }
 
+.home__container{
+    border-top: 1px solid #e4e8f74d;
+}
+
 @media only screen and (min-width: 1024px){
     .home__container {
         margin-top: 4px;
-        border-top: 1px solid #e4e8f7;
+        border-top: 1px solid #e4e8f74d;
         padding-top: 64px;
         padding-bottom: 96px;
+
     }
 }
 
-@media only screen and (min-width: 768px){
-    .title-white h1 {
-        font-size: 48px;
-        line-height: 125%;
-        letter-spacing: -.6px;
+
+.home__beneficios ul{
+    padding: 0;
+    li {
+        display: block;
         color: #fff;
-        margin-bottom: 36px;
-    }
-}
-
-.title-white p {
-    color: #fff;
-    font-weight: 300;
-    font-size: 16px;
-    line-height: 24px;
-    letter-spacing: .2px;
-    font-family: Roboto,sans-serif;
-    margin-bottom: 32px;
-    display: none;
-}
-
-.hide-desktop {
-    display: block;
-}
-
-@media only screen and (min-width: 1024px){
-    .hide-desktop {
-        display: none;
-    }
-}
-
-
-
-.home__beneficios ul li {
-    display: block;
-    color: #fff;
-    list-style: none;
-    margin-top: 0;
-    padding-top: 0;
-    margin-bottom: 16px;
-    font-size: 12px;
-    line-height: 16px;
-    font-family: Roboto,sans-serif;
-    display: flex!important;
-    flex-flow: column;
-    align-items: flex-start;
-    span {
-        color: #fff;
-        margin-right: 10px;
-        display: inline-block;
-        vertical-align: top;
+        list-style: none;
+        margin-top: 0;
+        padding-top: 0;
+        margin-bottom: 16px;
+        font-size: 12px;
+        line-height: 16px;
         font-family: Roboto,sans-serif;
-        font-size: 16px;
-        line-height: 28px;
-        font-weight: 300;
-        max-width: 80%;
-        margin-top: 4px;
-        margin-left: 4px;
+        display: flex!important;
+        flex-flow: column;
+        align-items: flex-start;
+        span {
+            color: #fff;
+            margin-right: 10px;
+            display: inline-block;
+            vertical-align: top;
+            font-family: Roboto,sans-serif;
+            font-size: 16px;
+            line-height: 28px;
+            font-weight: 300;
+            max-width: 80%;
+            margin-top: 4px;
+            margin-left: 4px;
+        }
     }
 }
 
@@ -175,18 +180,6 @@
             margin-right: 0;
             display: inline;
         }
-    }
-}
-
-@media only screen and (min-width: 768px){
-    .hide-tablet-on-down, .hide-tablet-on-up {
-        display: none;
-    }
-}
-
-@media only screen and (min-width: 1024px){
-    .hide-tablet-on-down {
-        display: block;
     }
 }
 
@@ -239,14 +232,6 @@
     .home__form .checkbox {
         margin-bottom: 0!important;
     }
-}
-
-.w100 {
-    width: 100%;
-}
-
-b, strong {
-    font-weight: bolder;
 }
 
 .input-field {
@@ -310,7 +295,7 @@ select {
     width: 100%;
     height: 56px;
     padding-left: 16px;
-    padding-top: 16px;
+    padding-top: 6px;
     border-radius: 4px;
     outline: none;
     font-size: 16px;
@@ -381,6 +366,12 @@ button, input, optgroup, select, textarea {
     letter-spacing: .2px;
 }
 
+@media only screen and (min-width: 330px){
+    .home__form {
+        padding: 0;
+    }
+}
+
 
 .home__form {
     .checkbox p, .home__form .checkbox p .link {
@@ -421,32 +412,6 @@ button, input, optgroup, select, textarea {
 }
 .checkbox p {
     display: flex;
-}
-
-.btn-style, .btn__primary, .btn__primary--border, .btn__secondary, .btn__secondary--border, .btn__secondary:disabled {
-    font-size: 14px;
-    line-height: 24px;
-    text-decoration: none;
-    font-family: Lato,Arial,sans-serif;
-    border-radius: 8px;
-    display: inline-block;
-    letter-spacing: .8px;
-    font-weight: 600;
-    text-transform: uppercase;
-    text-align: center;
-    width: 100%;
-    max-width: 360px;
-    border: none;
-    cursor: pointer;
-    margin-top: 32px;
-    margin-bottom: 64px;
-    padding: 15px 36px;
-    transition: all .3s ease-in-out;
-}
-
-.btn__primary {
-    background-color: #ef3340;
-    color: #fff;
 }
 
 .home__logo .container .row .ad-buy {
