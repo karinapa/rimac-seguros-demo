@@ -3,8 +3,12 @@ import { store } from "../state";
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Step1 from "../components/step1";
+import Step2 from "../components/step2";
+import { useState } from "react";
 
 const Steps = () => {
+
+  const [step, setStep] = useState(1);
   return (
     <div>
       <div id="InsuredData">
@@ -31,7 +35,10 @@ const Steps = () => {
         </div>
         <div className="container">
           <div className="row">
-            <Step1></Step1>
+            {
+             (step===1)?<Step1 onTrigger={()=>{ setStep(2)}}></Step1>:<Step2 onTrigger={()=>{ setStep(3)}} onBack={()=>{ setStep(1)}}></Step2>
+            }
+            
           </div>
         </div>
         <p className="legal--mobile hide-tablet-on-up">

@@ -9,6 +9,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
 import MenuItem from "@material-ui/core/MenuItem";
+import { useHistory } from "react-router-dom";
 
 const GreenRadio = withStyles({
   root: {
@@ -20,11 +21,16 @@ const GreenRadio = withStyles({
   checked: {},
 })((props: RadioProps) => <Radio color="default" {...props} />);
 
-const Step1: React.FC = () => {
+
+interface ChildProps {
+  onTrigger: () => void
+}
+
+const Step1: React.FC<ChildProps> = ({onTrigger}) => {
   const [email, setEmail] = useState("");
   const [selectedValue, setSelectedValue] = useState("a");
   const [selectedValue2, setSelectedValue2] = useState("s");
-
+  const history = useHistory();
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedValue(event.target.value);
   };
@@ -50,6 +56,12 @@ const Step1: React.FC = () => {
   const [dates, setDates] = useState("");
   const [lastnameMother, setLastnameMother] = useState("");
   const [lastnamefather, setLastnameFather] = useState("");
+
+  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    //history.push("/steps2", { from: "HomePage" });
+    
+  };
 
   return (
     <div className="col right w100">
@@ -92,7 +104,7 @@ const Step1: React.FC = () => {
         </div>
       </div>
       <div className="right__content">
-        <form>
+      <form onSubmit = {onTrigger}>
           <div className="insured-data col w100">
             <div className="col insured-data__form">
               <div className="col cardinsured w100">
