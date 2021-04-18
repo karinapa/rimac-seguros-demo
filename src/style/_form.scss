@@ -35,3 +35,13 @@
     color: #a3abcc;
     letter-spacing: .2px;
 }
+
+[role="radiogroup"] .MuiFormControlLabel-label {
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #c1c6db;
+    font-size: 14px;
+}

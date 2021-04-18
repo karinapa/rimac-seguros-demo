@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { useTypedSelector } from "../hooks/useTypedSelector";
 import { useActions } from "../hooks/useActions";
-import MenuItem from '@material-ui/core/MenuItem';
-import TextField from '@material-ui/core/TextField';
+import MenuItem from "@material-ui/core/MenuItem";
+import TextField from "@material-ui/core/TextField";
 import { Redirect, useHistory } from "react-router-dom";
-import FormLabel from '@material-ui/core/FormLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import Checkbox from '@material-ui/core/Checkbox';
+import FormLabel from "@material-ui/core/FormLabel";
+import FormControl from "@material-ui/core/FormControl";
+import FormGroup from "@material-ui/core/FormGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import Checkbox from "@material-ui/core/Checkbox";
 
 const RepositoriesList: React.FC = () => {
   const [term, setTerm] = useState("");
@@ -25,13 +25,13 @@ const RepositoriesList: React.FC = () => {
 
   const currencies = [
     {
-      value: '1',
-      label: 'DNI',
+      value: "1",
+      label: "DNI",
     },
     {
-      value: '2',
-      label: 'C.E.',
-    }
+      value: "2",
+      label: "C.E.",
+    },
   ];
   const [state, setState] = useState({
     politica1: false,
@@ -46,39 +46,36 @@ const RepositoriesList: React.FC = () => {
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(dates);
-    console.log(document);
-    console.log(phone);
-    console.log(typedocument);
     searchRepositories(term);
-    if(dates && document && phone && typedocument){
-      history.push("/pasos", { from: "HomePage" });
+    if (dates && document && phone && typedocument) {
+      history.push("/steps", { from: "HomePage" });
     }
   };
 
   return (
     <div>
       <form onSubmit={onSubmit}>
-          <div className="input-field-group doc">
-            <TextField
-              id="outlined-select-currency"
-              select
-              label=""
-              helperText=""
-              variant="outlined"
-              name="documentSelected"
-              className="form-select form-select-lg mb-3"
-              aria-label=".form-select-lg example"
-              value={typedocument}
-              onChange={(e) => setTypeDocument(e.target.value)}
-            >
-              {currencies.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.label}
-                </MenuItem>
-              ))}
-            </TextField>
-            <TextField placeholder="Nro. de documento"
+        <div className="input-field-group doc">
+          <TextField
+            id="outlined-select-currency"
+            select
+            label=""
+            helperText=""
+            variant="outlined"
+            name="documentSelected"
+            className="form-select form-select-lg mb-3"
+            aria-label=".form-select-lg example"
+            value={typedocument}
+            onChange={(e) => setTypeDocument(e.target.value)}
+          >
+            {currencies.map((option) => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
+          <TextField
+            placeholder="Nro. de documento"
             aria-describedby="basic-addon1"
             type="text"
             name="DNI"
@@ -86,47 +83,66 @@ const RepositoriesList: React.FC = () => {
             id="numDocumento2"
             value={document}
             onChange={(e) => setDocument(e.target.value)}
-            label="Nro. de documento" variant="outlined" />
-            
-          </div>
+            label="Nro. de documento"
+            variant="outlined"
+          />
+        </div>
 
         <div className="input-field">
-        <TextField placeholder="fecha de nacimiento"
-              aria-describedby="basic-addon1"
-              type="text"
-              name="fecha"
-              className=""
-              id="fecha"
-              value={dates}
-              onChange={(e) => setDates(e.target.value)}
-            label="fecha de nacimiento" variant="outlined" />
+          <TextField
+            placeholder="fecha de nacimiento"
+            aria-describedby="basic-addon1"
+            type="text"
+            name="fecha"
+            className=""
+            id="fecha"
+            value={dates}
+            onChange={(e) => setDates(e.target.value)}
+            label="fecha de nacimiento"
+            variant="outlined"
+          />
         </div>
         <div className="input-field">
-          <TextField placeholder="Celular"
+          <TextField
+            placeholder="Celular"
             className=" "
             type="text"
             name="phone"
             id="phone"
             value={phone}
-            onChange={(e) => setPhone(e.target.value)} 
-            label="Celular" variant="outlined" />
+            onChange={(e) => setPhone(e.target.value)}
+            label="Celular"
+            variant="outlined"
+          />
         </div>
         <span className="show-error"></span>
 
-        <FormControl required  error={err} component="fieldset">
-        <FormGroup className="checkbox">
-          <FormControlLabel
-            control={<Checkbox checked={politica1} onChange={handleChange} name="politica1" />}
-            label="Acepto la Política de Protección de Datos Personales y los Términos y
+        <FormControl required error={err} component="fieldset">
+          <FormGroup className="checkbox">
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={politica1}
+                  onChange={handleChange}
+                  name="politica1"
+                />
+              }
+              label="Acepto la Política de Protección de Datos Personales y los Términos y
               Condiciones"
-          />
-          <FormControlLabel
-            control={<Checkbox checked={politica2} onChange={handleChange} name="politica2"/>}
-            label="Debe confirmar los términos y condiciones"
-          />
-        </FormGroup>
-        <FormHelperText>{err}</FormHelperText>
-      </FormControl>
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={politica2}
+                  onChange={handleChange}
+                  name="politica2"
+                />
+              }
+              label="Debe confirmar los términos y condiciones"
+            />
+          </FormGroup>
+          <FormHelperText>{err}</FormHelperText>
+        </FormControl>
         <div className="two-tbn text-center">
           <button className="btn__primary large">COMENCEMOS</button>
         </div>

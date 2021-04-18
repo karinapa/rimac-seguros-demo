@@ -1,0 +1,36 @@
+
+.breadcrumb {
+    font-size: 12px;
+    line-height: 16px;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    color: #a9b1d1;
+    display: block;
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+@media only screen and (min-width: 1024px){
+    .breadcrumb {
+        margin-bottom: 32px;
+    }
+}
+
+
+.breadcrumb a {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 16px;
+}
+
+@media only screen and (min-width: 1024px){
+    .breadcrumb a {
+        position: absolute;
+        left: -40px;
+        top: -5px;
+    }
+}
+
+.breadcrumb strong {
+    color: #ef3340;
+}
