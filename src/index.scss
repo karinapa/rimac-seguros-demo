@@ -3,6 +3,8 @@
 @import './style/mixins';
 @import './style/button';
 @import './style/checkbox.scss';
+@import './style/_form.scss';
+
 *{
     font-family: 'Roboto'
 }
@@ -104,9 +106,9 @@
 
 @media only screen and (min-width: 1024px){
     .home__form {
-        width: 24.3243243243%;
+        width: 26.3243243243%;
         margin-left: 5.4054054054%;
-        margin-right: 5.4054054054%;
+        margin-right: 3.4054054054%;
         margin-top: 0;
     }
 }
@@ -200,7 +202,6 @@
         font-size: 16px;
     }
     .doc {
-        width: 28.5714285714%;
         display: inline-block;
         vertical-align: top;
         background-color: #fff;
@@ -208,9 +209,6 @@
             border-radius: 4px 0 0 4px;
             color: #494f66;
         }
-    }
-    select {
-        border-right: 0;
     }
     .num {
         width: 71.4285714286%;
@@ -224,136 +222,6 @@
     .checkbox {
         margin-bottom: 20px;
         text-align: left;
-    }
-}
-
-
-@media only screen and (min-width: 1024px){
-    .home__form .checkbox {
-        margin-bottom: 0!important;
-    }
-}
-
-.input-field {
-    position: relative;
-    margin-top: 5px;
-    min-height: 64px;
-    width: 100%;
-    select {
-        width: 100%;
-        height: 56px;
-        border: 1px solid #d4d5e8;
-        border-radius: 4px;
-        color: #a9b1d1;
-        font-size: 16px;
-        padding-left: 14px;
-    }
-    label {
-        color: #a9b1d1;
-        position: absolute;
-        bottom: 42%;
-        left: 16px;
-        display: block;
-        margin: 0 auto;
-        font-size: 16px;
-        cursor: text;
-        transition: transform .2s ease-out,color .2s ease-out,-webkit-transform .2s ease-out;
-        -webkit-transform-origin: 0 100%;
-        transform-origin: 0 100%;
-        text-align: left;
-        text-align: initial;
-    }
-}
-
-button, select {
-    text-transform: none;
-}
-button, input, optgroup, select, textarea {
-    font-family: inherit;
-    font-size: 100%;
-    line-height: 1.15;
-    margin: 0;
-}
-select {
-    background-color: #fff;
-    -webkit-appearance: none;
-    border-radius: 4px 0 0 4px;
-    //background-image: url(data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.102 1.548l3.642 3.354c.068.063.16.098.256.098a.378.378 0 00.256-.098l3.642-3.354A.306.306 0 009 1.323a.308.308 0 00-.112-.234.386.386 0 00-.502.009L5 4.215 1.614 1.098a.386.386 0 00-.502-.01.301.301 0 00-.01.46z' fill='%23EF3340' stroke='%23EF3340' stroke-width='.8'/%3E%3C/svg%3E);
-    background-repeat: no-repeat;
-    background-position: 90%;
-    background-position-x: calc(100% - 8px);
-    background-size: 10px;
-}
-
-
-.home__form .num input {
-    border-radius: 0 4px 4px 0;
-}
-.input-field input[type=date], .input-field input[type=email], .input-field input[type=number], .input-field input[type=text] {
-    color: #494f66;
-    border: 1px solid #d4d5e8;
-    width: 100%;
-    height: 56px;
-    padding-left: 16px;
-    padding-top: 6px;
-    border-radius: 4px;
-    outline: none;
-    font-size: 16px;
-    box-shadow: none;
-    box-sizing: border-box;
-    transition: box-shadow .3s,border .3s;
-    -webkit-box-shadow: 0 0 0 1000px #fff inset;
-    -webkit-text-fill-color: #494f66;
-    -webkit-appearance: none;
-    -moz-appearance: textfield;
-    appearance: none;
-}
-button, input {
-    overflow: visible;
-}
-button, input, optgroup, select, textarea {
-    font-family: inherit;
-    font-size: 100%;
-    line-height: 1.15;
-    margin: 0;
-}
-
-.checkbox p {
-    display: flex;
-}
-
-.checkbox input[type=checkbox] {
-    display: none;
-}
-
-.checkbox input[type=checkbox]+p label {
-    display: inline-block;
-    cursor: pointer;
-    font-family: Roboto,sans-serif;
-    font-weight: 300;
-    font-size: 12px;
-    line-height: 20px;
-    letter-spacing: .2px;
-    color: #a3abcc;
-    &:before {
-        content: "";
-        border: 1px solid #d4d5e8;
-        border-radius: 5px;
-        margin-right: 10px;
-        vertical-align: bottom;
-        color: transparent;
-        transition: .2s;
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        font-size: 8px;
-    }
-}
-
-.checkbox {
-    .text, label {
-        font-size: 12px;
-        color: #676f8f;
     }
 }
 

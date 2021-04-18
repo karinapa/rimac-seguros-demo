@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { useTypedSelector } from "../hooks/useTypedSelector";
 import { useActions } from "../hooks/useActions";
-import InputGroup from "react-bootstrap/InputGroup";
-import Dropdown from "react-bootstrap/Dropdown";
-import FormControl from "react-bootstrap/FormControl";
-import DropdownButton from "react-bootstrap/DropdownButton";
-import Form from "react-bootstrap/Form";
+import MenuItem from '@material-ui/core/MenuItem';
+import TextField from '@material-ui/core/TextField';
 import { Redirect, useHistory } from "react-router-dom";
+import FormLabel from '@material-ui/core/FormLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const RepositoriesList: React.FC = () => {
   const [term, setTerm] = useState("");
@@ -15,92 +18,115 @@ const RepositoriesList: React.FC = () => {
     (state) => state.repositories
   );
   const history = useHistory();
+  const [dates, setDates] = useState("");
+  const [document, setDocument] = useState("");
+  const [phone, setPhone] = useState("");
+  const [typedocument, setTypeDocument] = useState("1");
+
+  const currencies = [
+    {
+      value: '1',
+      label: 'DNI',
+    },
+    {
+      value: '2',
+      label: 'C.E.',
+    }
+  ];
+  const [state, setState] = useState({
+    politica1: false,
+    politica2: false,
+  });
+
+  const { politica1, politica2 } = state;
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setState({ ...state, [event.target.name]: event.target.checked });
+  };
+  const err = [politica1, politica2].filter((v) => v).length !== 2;
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    console.log(dates);
+    console.log(document);
+    console.log(phone);
+    console.log(typedocument);
     searchRepositories(term);
-    history.push("/pasos", { from: "HomePage" });
+    if(dates && document && phone && typedocument){
+      history.push("/pasos", { from: "HomePage" });
+    }
   };
 
   return (
     <div>
       <form onSubmit={onSubmit}>
-        <InputGroup className="">
-          <div className="input-field doc">
-            <Form.Control
-              as="select"
-              size="lg"
+          <div className="input-field-group doc">
+            <TextField
+              id="outlined-select-currency"
+              select
+              label=""
+              helperText=""
+              variant="outlined"
               name="documentSelected"
               className="form-select form-select-lg mb-3"
               aria-label=".form-select-lg example"
+              value={typedocument}
+              onChange={(e) => setTypeDocument(e.target.value)}
             >
-              <option value="2">DNI</option>
-              <option value="4">C.E.</option>
-            </Form.Control>
-          </div>
-          <div className="input-field num">
-            <FormControl
-              placeholder="fecha de nacimiento"
-              aria-describedby="basic-addon1"
-              type="text"
-              name="fecha"
-              className=""
-              id="fecha"
-            />
-          </div>
-        </InputGroup>
-        <div className="input-field">
-          <FormControl
-            placeholder="Nro. de documento"
+              {currencies.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+            <TextField placeholder="Nro. de documento"
             aria-describedby="basic-addon1"
             type="text"
             name="DNI"
             className=""
             id="numDocumento2"
-            value={term}
-            onChange={(e) => setTerm(e.target.value)}
-          />
+            value={document}
+            onChange={(e) => setDocument(e.target.value)}
+            label="Nro. de documento" variant="outlined" />
+            
+          </div>
+
+        <div className="input-field">
+        <TextField placeholder="fecha de nacimiento"
+              aria-describedby="basic-addon1"
+              type="text"
+              name="fecha"
+              className=""
+              id="fecha"
+              value={dates}
+              onChange={(e) => setDates(e.target.value)}
+            label="fecha de nacimiento" variant="outlined" />
         </div>
         <div className="input-field">
-          <FormControl
-            placeholder="Celular"
+          <TextField placeholder="Celular"
             className=" "
             type="text"
             name="phone"
             id="phone"
-            value=""
-          />
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)} 
+            label="Celular" variant="outlined" />
         </div>
         <span className="show-error"></span>
-        <div className="terminos">
-          <div className=" checkbox w100">
-            <input type="checkbox" id="termscc" name="termscc" value="true" />
-            <p>
-              <label></label>
-              <a className="link__check">
-                {" "}
-                Acepto la{" "}
-                <span> Política de envío de Comunicaciones Comerciales</span>
-              </a>
-            </p>
-          </div>
-        </div>
-        <div className="checkbox w100">
-          <input type="checkbox" id="termslp" name="termslp" value="true" />
-          <p>
-            <label> </label>
-            <a className="link__check">
-              Acepto la{" "}
-              <span>
-                Política de Protección de Datos Personales y los Términos y
-                Condiciones
-              </span>
-            </a>
-          </p>
-          <span className="show-error" style={{ display: "none" }}>
-            Debe confirmar los términos y condiciones
-          </span>
-        </div>
+
+        <FormControl required  error={err} component="fieldset">
+        <FormGroup className="checkbox">
+          <FormControlLabel
+            control={<Checkbox checked={politica1} onChange={handleChange} name="politica1" />}
+            label="Acepto la Política de Protección de Datos Personales y los Términos y
+              Condiciones"
+          />
+          <FormControlLabel
+            control={<Checkbox checked={politica2} onChange={handleChange} name="politica2"/>}
+            label="Debe confirmar los términos y condiciones"
+          />
+        </FormGroup>
+        <FormHelperText>{err}</FormHelperText>
+      </FormControl>
         <div className="two-tbn text-center">
           <button className="btn__primary large">COMENCEMOS</button>
         </div>
