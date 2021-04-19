@@ -5,6 +5,7 @@ import { Switch, Route } from "react-router-dom";
 import Step1 from "../components/step1";
 import Step2 from "../components/step2";
 import { useState } from "react";
+import Step3 from "../components/step3";
 
 const Steps = () => {
 
@@ -25,18 +26,18 @@ const Steps = () => {
           </div>
           <hr />
           <div className="bg-left__img">
-            <img className="hide-desktop" alt="Seguro de Salud Integral" />
+            <img className="hide-desktop" alt="" />
             <img
               className="hide-tablet-on-down"
               src="/img/personaje-datos-personales.png"
-              alt="Seguro de Salud Integral"
+              alt=""
             />
           </div>
         </div>
         <div className="container">
           <div className="row">
             {
-             (step===1)?<Step1 onTrigger={()=>{ setStep(2)}}></Step1>:<Step2 onTrigger={()=>{ setStep(3)}} onBack={()=>{ setStep(1)}}></Step2>
+             (step===1)?<Step1 onTrigger={()=>{ setStep(2)}}></Step1>:((step===2)?<Step2 onTrigger={()=>{ setStep(3)}} onBack={()=>{ setStep(1)}}></Step2>:<Step3 onTrigger={()=>{ console.log()}} onBack={()=>{ setStep(2)}}></Step3>)
             }
             
           </div>

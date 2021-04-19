@@ -16,3 +16,22 @@
         flex-basis: 61.33%;
     }
 }
+
+.acordeon-title{
+    .MuiGrid-spacing-xs-3 > .MuiGrid-item{
+        padding:0
+    }
+    .MuiPaper-elevation1{
+        box-shadow: none;
+    }
+    h3{
+        font-size: 20px;
+        color: #494f66;
+        line-height: 30px;
+        font-weight: 100;
+        b{
+            font-weight: 400;
+    color: #ef3340;
+        }
+    }
+}
