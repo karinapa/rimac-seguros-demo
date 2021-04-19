@@ -11,10 +11,3 @@ done
 
 #Delete old npm files to avoid future errors on ubuntu Linux
 sudo rm -rf /home/ubuntu/nodejs
-
-#stop apache2 service
-sudo systemctl stop apache2
-
-#Delete old dist file
-sudo rm -rf /var/www/html/*
-

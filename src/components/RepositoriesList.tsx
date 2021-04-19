@@ -51,6 +51,7 @@ const RepositoriesList: React.FC = () => {
       history.push("/steps", { from: "HomePage" });
     }
   };
+  
 
   return (
     <div>
@@ -92,7 +93,7 @@ const RepositoriesList: React.FC = () => {
           <TextField
             placeholder="fecha de nacimiento"
             aria-describedby="basic-addon1"
-            type="text"
+            type="date"
             name="fecha"
             className=""
             id="fecha"
@@ -100,6 +101,9 @@ const RepositoriesList: React.FC = () => {
             onChange={(e) => setDates(e.target.value)}
             label="fecha de nacimiento"
             variant="outlined"
+            InputLabelProps={{
+              shrink: true,
+            }}
           />
         </div>
         <div className="input-field">
