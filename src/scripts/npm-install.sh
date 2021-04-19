@@ -1,3 +1,3 @@
 #!/bin/bash
-cd /home/ubuntu/nodejs
+cd /home/ubuntu/
 sudo npm install
