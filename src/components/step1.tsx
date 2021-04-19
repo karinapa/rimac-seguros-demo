@@ -68,7 +68,7 @@ const Step1: React.FC<ChildProps> = ({onTrigger}) => {
       <div className="headermobile">
         <div className="headermobile__title">
           <div className="breadcrumb">
-            <a className="back" href="/comprar/seguro-salud">
+            <a className="back" href="/">
               <svg
                 width="24"
                 height="24"

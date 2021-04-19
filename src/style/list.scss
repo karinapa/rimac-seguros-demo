@@ -1,0 +1,15 @@
+.list-special{
+    .list-active{
+        svg{
+            color:#EF3340
+        }
+    }
+    .list-inactive{
+        svg, span{
+            color: #A3ABCC
+        }
+        span{
+            text-decoration: line-through;
+        }
+    }
+}

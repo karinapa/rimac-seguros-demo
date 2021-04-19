@@ -1,0 +1,11 @@
+.grid-normal{
+    box-shadow: none;
+    border: 1px solid #F0F2FA;
+    .grid-title>div{
+        background-color:#F0F2FA;
+        text-align:center;
+    }
+    .MuiPaper-elevation1{
+        box-shadow:none
+    }
+}

@@ -1,0 +1,18 @@
+.acordeon{
+    .MuiPaper-elevation1{
+        box-shadow: none;
+    }
+    .MuiPaper-elevation1>div{
+        border-bottom: 1px solid #E4E8F7;
+        border-radius: 0;
+        &.MuiCollapse-container{
+            border-bottom: 2px dotted transparent;
+        }
+    }
+    .grid-total{
+        border-top: 2px dotted #E4E8F7;;
+    }
+    .makeStyles-heading-123 {
+        flex-basis: 61.33%;
+    }
+}
