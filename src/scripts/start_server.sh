@@ -1,3 +1,3 @@
 #!/bin/bash
-cd /home/ubuntu/rimac/rimac-seguros-demo
+cd /home/ubuntu/nodejs
 npm start &
