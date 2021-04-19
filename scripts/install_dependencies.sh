@@ -6,9 +6,3 @@ sudo apt-get install -y nodejs
 
 #cd /home/ubuntu/nodejs
 #sudo npm install
-
-# install pm2 module globaly
-npm install -g pm2
-pm2 update
-
-
